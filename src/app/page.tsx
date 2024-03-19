@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import Link from 'next/link'
-import Logo from '@/images/trclogo2.png'
+import Logo from '@/images/tint-logo.png'
 
 const Home = async () => {
   return (
