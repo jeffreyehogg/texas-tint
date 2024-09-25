@@ -1,125 +1,133 @@
-'use client';
+'use client'
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
-import { Container } from '@/components/Container';
-import { Bars3Icon } from '@heroicons/react/24/outline';
-import logo from '@/images/logo.png';
+import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
+import { Container } from '@/components/Container'
+import { Bars3Icon } from '@heroicons/react/24/solid'
 
-function NavItem({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
-  let isActive = usePathname() === href;
+const logo = require('@/images/logo.png')
+
+const NavItem = ({
+  href,
+  children,
+  onClick,
+}: {
+  href: string
+  children: React.ReactNode
+  onClick?: () => void
+}) => {
+  const pathname = usePathname()
+  const isActive = pathname === href
 
   return (
-    <li onClick={onClick}>
+    <li onClick={onClick} className="cursor-pointer">
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
-          isActive ? 'text-blue-600' : 'hover:text-blue-600'
+          'px-3 py-2 transition-colors duration-300',
+          isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600',
         )}
       >
         {children}
-        {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0" />
-        )}
       </Link>
     </li>
-  );
+  )
 }
 
-function DesktopNavigation() {
-  return (
-    <nav className="hidden md:flex">
-      <ul className="flex space-x-6 text-md font-semibold text-white">
-        <NavItem href="/services"> Services </NavItem>
-        <NavItem href="/contact">Contact</NavItem>
-      </ul>
-    </nav>
-  );
-}
+const DesktopNavigation = () => (
+  <nav className="hidden md:block">
+    <ul className="flex space-x-8 text-lg font-medium">
+      <NavItem href="/">Home</NavItem>
+      <NavItem href="/contact">Contact</NavItem>
+    </ul>
+  </nav>
+)
 
-function MobileNavigation({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const menuRef = useRef<HTMLDivElement>(null);
+const MobileNavigation = ({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean
+  onClose: () => void
+}) => {
+  const menuRef = useRef(null)
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onClose();
-      }
+    const handleClickOutside = (event: MouseEvent) => {
+      onClose()
     }
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside)
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside)
     }
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen, onClose]);
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isOpen, onClose])
 
   return (
     <div
       ref={menuRef}
-      className={`absolute top-16 right-0 mt-2 w-48 bg-[#1E9OFF] rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition transform ${
-        isOpen ? 'block' : 'hidden'
-      }`}
+      className={clsx(
+        'absolute right-0 top-16 w-48 transform rounded-lg bg-white shadow-xl transition-all duration-300',
+        isOpen
+          ? 'visible scale-100 opacity-100'
+          : 'invisible scale-95 opacity-0',
+      )}
     >
-      <ul className="py-1 text-white">
-        <NavItem href="/services" onClick={onClose}>Services</NavItem>
-        <NavItem href="/contact" onClick={onClose}>Contact</NavItem>
+      <ul className="py-2">
+        <NavItem href="/" onClick={onClose}>
+          Home
+        </NavItem>
+        <NavItem href="/contact" onClick={onClose}>
+          Contact
+        </NavItem>
       </ul>
     </div>
-  );
+  )
 }
 
-export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+export const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
 
   return (
-    <header className="sticky top-0 z-50 bg-[#1E90FF] shadow-md">
-      <Container className="flex justify-between items-center">
-        {/* Title, Logo, and Navigation in One Line */}
+    <header className="sticky top-0 z-50 bg-white shadow-lg">
+      <Container className="flex items-center justify-between py-4">
         <div className="flex items-center">
-          {/* Clickable Logo Image */}
-          <Link href="/" passHref>
-            <div className="relative w-44 md:w-80 h-24 cursor-pointer"> {/* Added cursor-pointer for better UX */}
-              <Image
-                src={logo} // Adjusted the path based on your directory structure
-                alt="Texas Tint Logo"
-                layout="fill"
-                objectFit="contain"
-                priority // Prioritize loading for branding
-              />
-            </div>
+          {/* Logo */}
+          <Link href="/" className="flex flex-grow items-center">
+            <Image
+              src={logo}
+              alt="Texas Tint Logo"
+              width={48}
+              height={48}
+              priority
+            />
           </Link>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="ml-4 flex items-center text-gray-700 hover:text-gray-900 md:hidden"
+            aria-label="Toggle menu"
+          >
+            <Bars3Icon className="h-6 w-6" />
+          </button>
+
           {/* Desktop Navigation */}
           <DesktopNavigation />
+
+          <MobileNavigation
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          />
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={toggleMobileMenu}
-          className="md:hidden ml-auto text-white absolute top-12 right-4"
-        >
-          <Bars3Icon className="h-8 w-8" />
-        </button>
-
-        {/* Mobile Navigation */}
-        <MobileNavigation isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
       </Container>
     </header>
-  );
+  )
 }

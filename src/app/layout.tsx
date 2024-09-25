@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Texas Tint',
     default:
-      'Texas Tint specializes in commercial and residential building window tinting, paint protection film, and car window tinting.',
+      'Texas Tint specializes in Commercial and Automotive window tinting.',
   },
   description:
-    'Texas Tint specializes in commercial and residential building window tinting, paint protection film, and car window tinting. Contact us for a free quote or to schedule an appointment.',
+    'Texas Tint specializes in Commercial and Automotive window tinting. Contact us for a free quote or to schedule an appointment.',
 }
 
 export default function RootLayout({
