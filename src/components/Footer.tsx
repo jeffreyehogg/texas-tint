@@ -31,7 +31,7 @@ export function Footer() {
                 <NavLink href="/contact">Contact</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Texas Tint LLC. All rights
+                &copy; {new Date().getFullYear()} Texas Tint Plus, LLC. All rights
                 reserved.
               </p>
             </div>
