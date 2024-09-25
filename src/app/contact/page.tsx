@@ -81,10 +81,10 @@ export default function Contact() {
               {/* space */}
               or by phone at{' '}
               <a
-                href="tel:+1-832-334-3800"
+                href="tel:+1-832-363-5100"
                 className="text-[#00205A] dark:text-blue-700"
               >
-                +1 (832) 334-3800
+                +1 (832) 363-5100
               </a>{' '}
               and we&apos;ll get back to you as soon as possible.
             </p>
@@ -102,10 +102,10 @@ export default function Contact() {
             <div className="mt-8 flex space-x-4 border-t border-zinc-100 pt-8 dark:border-zinc-700/40">
               <PhoneIcon className="h-6 w-6 flex-none fill-zinc-500" />
               <a
-                href="tel:+1-832-344-3800"
+                href="tel:+1-832-363-5100"
                 className="group flex text-sm font-medium text-zinc-800 transition hover:text-[#00205A] dark:text-zinc-200 dark:hover:text-[#00205A]"
               >
-                +1 (832) 344-3800
+                +1 (832) 363-5100
               </a>
             </div>
           </ul>
