@@ -7,10 +7,10 @@ const ServicesPage = () => {
     <Container className="py-20">
       <div className="flex flex-col p-2 lg:flex-row lg:p-8">
         <div className="text-center lg:w-2/3">
-          <h2 className="mb-8 text-5xl font-bold tracking-wide md:text-5xl dark:text-[#d9ab69]">
+          <h2 className="mb-8 text-5xl font-bold tracking-wide md:text-5xl dark:text-white">
             Window Tint Solutions
           </h2>
-          <div className="space-y-8 text-zinc-600 dark:text-zinc-400">
+          <div className="space-y-8 text-black dark:text-white">
             {[
               {
                 title: 'Commercial buildings',
@@ -22,17 +22,15 @@ const ServicesPage = () => {
               },
             ].map((item, index) => (
               <div className="text-left" key={index}>
-                <h3 className="md:textxl mb-2 text-3xl font-bold tracking-wide text-black">
+                <h3 className="md:textxl mb-2 text-3xl font-bold tracking-wide">
                   {item.title}
                 </h3>
-                <p className="text-md tracking-wide text-zinc-600 md:text-xl">
-                  {item.desc}
-                </p>
+                <p className="text-md tracking-wide md:text-xl">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="mt-8 flex justify-center lg:ml-24 lg:mt-0 lg:mt-16">
+        <div className="mt-8 flex justify-center lg:ml-24 lg:mt-16">
           <div className="relative h-52 w-36 lg:h-72 lg:w-56">
             <Image
               src={Logo}

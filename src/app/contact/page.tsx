@@ -20,9 +20,9 @@ const SocialLink = ({
   <li className={clsx(className, 'flex')}>
     <Link
       href={href}
-      className="group flex text-sm font-medium text-zinc-800 transition hover:text-[#00205A] dark:text-zinc-200 dark:hover:text-[#00205A]"
+      className="group flex text-sm font-medium text-zinc-800 transition hover:text-blue-400 dark:text-zinc-200 dark:hover:text-zinc-400"
     >
-      <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-[#00205A]" />
+      <Icon className="group-hover:fill-btext-blue-400 h-6 w-6 flex-none fill-zinc-500 transition" />
       <span className="ml-4">{children}</span>
     </Link>
   </li>

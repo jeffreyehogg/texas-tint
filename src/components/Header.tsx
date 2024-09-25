@@ -28,7 +28,7 @@ const NavItem = ({
         href={href}
         className={clsx(
           'px-3 py-2 transition-colors duration-300',
-          isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600',
+          isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-300',
         )}
       >
         {children}
