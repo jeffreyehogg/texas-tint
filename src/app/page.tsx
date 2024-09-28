@@ -5,6 +5,7 @@ import { Container } from '@/components/Container'
 import Link from 'next/link'
 import Benz from '@/images/vehicles/benz.jpg'
 import ServicesPage from './services/page'
+import ContactPage from './contact/page'
 
 const HomePage = () => {
   return (
@@ -74,8 +75,9 @@ const HomePage = () => {
         </Container>
       </div>
 
-      {/* Embedded Services Section */}
+      {/* Embedded Sections */}
       <ServicesPage />
+      <ContactPage />
     </>
   )
 }

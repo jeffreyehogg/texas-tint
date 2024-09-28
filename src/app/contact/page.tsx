@@ -1,42 +1,6 @@
 import { type Metadata } from 'next'
-import Link from 'next/link'
-import clsx from 'clsx'
-
 import { Container } from '@/components/Container'
 import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
-
-const SocialLink = ({
-  className,
-  href,
-  children,
-  icon: Icon,
-}: {
-  className?: string
-  href: string
-  icon: React.ComponentType<{ className?: string }>
-  children: React.ReactNode
-}) => (
-  <li className={clsx(className, 'flex')}>
-    <Link
-      href={href}
-      className="group flex text-sm font-medium text-zinc-800 transition hover:text-blue-400 dark:text-zinc-200 dark:hover:text-zinc-400"
-    >
-      <Icon className="group-hover:fill-btext-blue-400 h-6 w-6 flex-none fill-zinc-500 transition" />
-      <span className="ml-4">{children}</span>
-    </Link>
-  </li>
-)
-
-const MailIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-      />
-    </svg>
-  )
-}
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -44,7 +8,7 @@ export const metadata: Metadata = {
     'Texas Tint specializes in commercial and residential building window tinting, paint protection film, and car window tinting. Contact us for a free quote or to schedule an appointment.',
 }
 
-export default function Contact() {
+const ContactPage = () => {
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -104,3 +68,5 @@ export default function Contact() {
     </Container>
   )
 }
+
+export default ContactPage
