@@ -32,7 +32,7 @@ const NavItem = ({
           'rounded-md px-3 py-2 text-sm font-medium transition duration-300',
           isActive
             ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400'
-            : ' hover:text-gray-100 dark:text-gray-100 dark:hover:text-white',
+            : 'hover:text-shadow',
           'sm:[&:not(.active)]:text-shadow',
         )}
       >
@@ -136,7 +136,7 @@ export const Header = () => {
         isScrolled || !isLandingPage
           ? 'bg-white text-gray-900 shadow-md dark:bg-zinc-900 dark:text-white'
           : 'bg-transparent text-white dark:text-white',
-        isLandingPage && !isScrolled ? 'text-shadow text-white' : '',
+        isLandingPage && !isScrolled ? 'text-shadow' : '',
       )}
     >
       <Container className="flex items-center justify-between py-4">
