@@ -17,6 +17,8 @@ const ContainerOuter = forwardRef<
   )
 })
 
+ContainerOuter.displayName = 'ContainerOuter'
+
 const ContainerInner = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<'div'>
@@ -35,7 +37,9 @@ const ContainerInner = forwardRef<
   )
 })
 
-export const Container = forwardRef<
+ContainerInner.displayName = 'ContainerInner'
+
+const Container = forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof ContainerOuter>
 >(function Container(props, ref) {
@@ -46,3 +50,5 @@ export const Container = forwardRef<
     </ContainerOuter>
   )
 })
+
+export default Container

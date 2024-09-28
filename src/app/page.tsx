@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import clsx from 'clsx'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
-import { Container } from '@/components/Container'
+import Container from '@/components/Container'
 import Link from 'next/link'
 import Benz from '@/images/vehicles/benz.jpg'
 import ServicesPage from './services/page'

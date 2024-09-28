@@ -1,5 +1,5 @@
 import { type Metadata } from 'next'
-import { Container } from '@/components/Container'
+import Container from '@/components/Container'
 import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
 
 export const metadata: Metadata = {
