@@ -32,7 +32,7 @@ const NavItem = ({
           'rounded-md px-3 py-2 text-sm font-medium transition duration-300',
           isActive
             ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400'
-            : 'hover:text-shadow',
+            : 'hover:text-shadow dark:hover:text-shadow',
           'sm:[&:not(.active)]:text-shadow',
         )}
       >
@@ -87,7 +87,7 @@ const MobileNavigation = ({
     >
       <div
         className={clsx(
-          'absolute right-0 mt-2 w-56 transform rounded-lg bg-white shadow-xl transition-all',
+          'absolute right-0 mt-2 w-56 transform rounded-lg bg-white text-gray-900 shadow-xl transition-all dark:bg-zinc-900 dark:text-white',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
       >
