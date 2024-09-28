@@ -2,43 +2,49 @@ import Image from 'next/image'
 import { Container } from '@/components/Container'
 import Logo from '@/images/tint-logo.png'
 
+const services = [
+  {
+    title: 'Commercial Buildings',
+    desc: 'Professionally installed window film addresses issues like high heat, excessive glare, privacy, and UV protection, all while being cost-effective.',
+  },
+  {
+    title: 'Automotive',
+    desc: 'Enhance your vehicle with high-grade tint film that offers 99% UV protection, reduces heat, minimizes glare, and comes with a lifetime warranty.',
+  },
+]
+
+const ServiceItem = ({ title, desc }: { title: string; desc: string }) => (
+  <div className="mb-6">
+    <h3 className="mb-2 text-2xl font-bold text-blue-700">{title}</h3>
+    <p className="text-gray-600">{desc}</p>
+  </div>
+)
+
 const ServicesPage = () => {
   return (
-    <Container className="py-20">
-      <div className="flex flex-col p-2 lg:flex-row lg:p-8">
-        <div className="text-center lg:w-2/3">
-          <h2 className="mb-8 text-5xl font-bold tracking-wide md:text-5xl dark:text-white">
-            Window Tint Solutions
+    <Container className="bg-gray-50 py-24 dark:bg-gray-900">
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        {/* Text Content */}
+        <div className="space-y-6 text-center lg:text-left">
+          <h2 className="text-4xl font-extrabold text-blue-800 dark:text-white">
+            Advanced Window Tint Solutions
           </h2>
-          <div className="space-y-8 text-black dark:text-white">
-            {[
-              {
-                title: 'Commercial buildings',
-                desc: 'Professionally installed window film is a simple, cost-effective solution for a wide range of window-related problems such as high heat, excessive glare, lack of privacy, and exposure to harmful UV rays',
-              },
-              {
-                title: 'Automotive',
-                desc: 'high grade automotive tint film to enhance the look and comfort of your car or truck. Our professional grade products offer 99% UVA/UVB protection as well as keeping out heat and reduce glare. Our products come with a lifetime guarantee.',
-              },
-            ].map((item, index) => (
-              <div className="text-left" key={index}>
-                <h3 className="md:textxl mb-2 text-3xl font-bold tracking-wide">
-                  {item.title}
-                </h3>
-                <p className="text-md tracking-wide md:text-xl">{item.desc}</p>
-              </div>
+          <div className="space-y-4">
+            {services.map((service, index) => (
+              <ServiceItem key={index} {...service} />
             ))}
           </div>
         </div>
-        <div className="mt-8 flex justify-center lg:ml-24 lg:mt-16">
-          <div className="relative h-52 w-36 lg:h-72 lg:w-56">
+
+        {/* Image */}
+        <div className="flex justify-center">
+          <div className="relative h-72 w-full max-w-lg">
             <Image
               src={Logo}
               alt="Texas Tint Logo"
               layout="fill"
-              priority
               objectFit="contain"
-              className="object-contain"
+              className="drop-shadow-xl"
             />
           </div>
         </div>
