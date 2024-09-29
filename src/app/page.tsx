@@ -4,8 +4,8 @@ import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import Container from '@/components/Container'
 import Link from 'next/link'
 import Benz from '@/images/vehicles/benz.jpg'
-import ServicesPage from './services/page'
 import ContactPage from './contact/page'
+import { ServiceList } from './services/ServiceList'
 
 const HomePage = () => {
   return (
@@ -76,7 +76,7 @@ const HomePage = () => {
       </div>
 
       {/* Embedded Sections */}
-      <ServicesPage />
+      <ServiceList />
       <ContactPage />
     </>
   )
