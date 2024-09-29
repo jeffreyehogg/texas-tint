@@ -16,7 +16,7 @@ const services = [
 const ServiceItem = ({ title, desc }: { title: string; desc: string }) => (
   <div className="mb-6">
     <h3 className="mb-2 text-2xl font-bold text-blue-700">{title}</h3>
-    <p className="text-gray-600">{desc}</p>
+    <p className="text-gray-600 dark:text-gray-300">{desc}</p>
   </div>
 )
 
