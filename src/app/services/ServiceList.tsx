@@ -1,3 +1,7 @@
+import Image from 'next/image'
+import Logo from '@/images/tint-logo.png'
+import Container from '@/components/Container'
+
 const services = [
   {
     title: 'Commercial Buildings',
@@ -17,14 +21,31 @@ const ServiceItem = ({ title, desc }: { title: string; desc: string }) => (
 )
 
 export const ServiceList = () => (
-  <div className="space-y-6 text-center lg:text-left">
-    <h2 className="text-4xl font-extrabold text-blue-800 dark:text-white">
-      Advanced Window Tint Solutions
-    </h2>
-    <div className="space-y-4">
-      {services.map((service, index) => (
-        <ServiceItem key={index} {...service} />
-      ))}
+  <Container className="bg-gray-50 py-24 dark:bg-gray-900">
+    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      {/* Text Content */}
+      <div className="space-y-6 text-center lg:text-left">
+        <h2 className="text-4xl font-extrabold text-blue-800 dark:text-white">
+          Advanced Window Tint Solutions
+        </h2>
+        <div className="space-y-4">
+          {services.map((service, index) => (
+            <ServiceItem key={index} {...service} />
+          ))}
+        </div>
+      </div>
+      {/* Image */}
+      <div className="flex justify-center">
+        <div className="relative h-72 w-full max-w-lg">
+          <Image
+            src={Logo}
+            alt="Texas Tint Logo"
+            layout="fill"
+            objectFit="contain"
+            className="drop-shadow-xl"
+          />
+        </div>
+      </div>
     </div>
-  </div>
+  </Container>
 )
