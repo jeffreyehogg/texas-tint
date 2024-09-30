@@ -21,7 +21,7 @@ const ServiceItem = ({ title, desc }: { title: string; desc: string }) => (
 )
 
 export const ServiceList = () => (
-  <Container className="bg-gray-50 py-24 dark:bg-gray-900">
+  <Container className="bg-gray-50 py-24 dark:bg-gray-800">
     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
       {/* Text Content */}
       <div className="space-y-6 text-center lg:text-left">
