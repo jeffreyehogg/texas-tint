@@ -138,7 +138,7 @@ const NavBar = () => {
         isLandingPage && !isScrolled ? 'text-shadow' : '',
       )}
     >
-      <div className="container ml-auto flex items-center justify-between p-4">
+      <div className="container m-auto flex items-center justify-between p-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image
