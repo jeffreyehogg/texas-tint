@@ -9,30 +9,40 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Texas Tint Plus', // Assuming the brand name has been updated or could be updated for clarity
+    template: '%s - Texas Tint Plus',
     default: 'Texas Tint Plus - Expert Window Tinting for Vehicles & Buildings',
   },
   description:
-    'Elevate your space with Texas Tint Plus. Offering premier window tinting for automotive, residential, and commercial needs. Request your free quote today!',
+    'Elevate your space with Texas Tint Plus. Offering premier window tinting for automotive, and commercial needs. Request your free quote today!',
   keywords: [
     'window tint',
     'car tint',
     'home tint',
     'office tint',
+    'building tint',
     'Texas Tint Plus',
+    'Texas Tint',
     'UV protection',
     'privacy glass',
   ],
   openGraph: {
     title: 'Texas Tint Plus - Enhance Your Privacy and Style',
     description:
-      'Discover top-tier window tinting services for all your needs at Texas Tint Plus. Protect, style, and enhance with us.',
+      'Elevate your space with Texas Tint Plus. Offering premier window tinting for automotive, and commercial needs. Request your free quote today!',
     type: 'website',
-    url: 'https://yourwebsite.com', // Replace with your domain
-    images: ['/og-image.jpg'], // Path to your Open Graph image
+    url: 'https://texastint.com',
+    images: ['/images/vehicles/benz.jpg'],
+    siteName: 'Texas Tint Plus',
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@texastintplus',
+    images: [
+      {
+        url: 'https://texastint.com/images/vehicles/benz.jpg',
+        alt: 'Luxurious car with scenic backdrop',
+      },
+    ],
   },
 }
 
