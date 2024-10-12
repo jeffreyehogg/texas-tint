@@ -4,14 +4,14 @@ import Container from '@/components/Container'
 import ImageGrid from '@/components/ImageGrid'
 import tesla from '@/images/vehicles/tesla.jpg'
 import cybertruck from '@/images/vehicles/cyber-truck.jpg'
-import c300 from '@/images/vehicles/back-right-c300.jpg'
-import commercial from '@/images/commercial.jpg'
+import c300 from '@/images/vehicles/c300.jpg'
+import building from '@/images/building.jpg'
 import home from '@/images/home.jpg'
 const services = [
   {
     title: 'Commercial Buildings',
     desc: 'Professionally installed window film addresses issues like high heat, excessive glare, privacy, and UV protection, all while being cost-effective.',
-    photos: [commercial, home],
+    photos: [building, home],
   },
   {
     title: 'Automotive',
