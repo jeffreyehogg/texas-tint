@@ -27,7 +27,7 @@ const ServiceItem = ({ title, desc }: { title: string; desc: string }) => (
 
 export const ServiceList = () => (
   <Container>
-    <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+    <div className="grid grid-cols-1 items-center gap-12">
       {/* Text Content */}
       <div className="space-y-6 text-center lg:text-left">
         <h2 className="text-4xl font-extrabold text-blue-800 dark:text-white">
