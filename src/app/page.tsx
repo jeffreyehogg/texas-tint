@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import clsx from 'clsx'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import Container from '@/components/Container'
 import Link from 'next/link'
 import Benz from '@/images/vehicles/benz.jpg'
-import ContactPage from './contact/page'
 import { ServiceList } from './services/ServiceList'
+import { ContactInfo } from './contact/ContacInfo'
+import Logo from '@/images/tint-logo.png'
 
 const HomePage = () => {
   return (
@@ -75,9 +75,24 @@ const HomePage = () => {
         </Container>
       </div>
 
+      {/* Logo */}
+      <div className="flex justify-center">
+        <div className="relative h-72 w-full max-w-lg">
+          <Image
+            src={Logo}
+            alt="Texas Tint Logo"
+            layout="fill"
+            objectFit="contain"
+            className="drop-shadow-xl"
+          />
+        </div>
+      </div>
+
       {/* Embedded Sections */}
       <ServiceList />
-      <ContactPage />
+      <div className="pt-16">
+        <ContactInfo />
+      </div>
     </>
   )
 }

@@ -4,7 +4,7 @@ import { ServiceList } from './ServiceList'
 
 const ServicesPage = () => {
   return (
-    <Container className="py-24 lg:py-32">
+    <Container className="py-24">
       <ServiceList />
     </Container>
   )

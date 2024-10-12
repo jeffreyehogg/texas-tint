@@ -1,15 +1,20 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Logo from '@/images/tint-logo.png'
 import Container from '@/components/Container'
+import ImageGrid from '@/components/ImageGrid'
+import tesla from '@/images/vehicles/tesla.jpg'
+import cybertruck from '@/images/vehicles/cyber-truck.jpg'
 
 const services = [
   {
     title: 'Commercial Buildings',
     desc: 'Professionally installed window film addresses issues like high heat, excessive glare, privacy, and UV protection, all while being cost-effective.',
+    photos: [tesla, cybertruck],
   },
   {
     title: 'Automotive',
     desc: 'Enhance your vehicle with high-grade tint film that offers 99% UV protection, reduces heat, minimizes glare, and comes with a lifetime warranty.',
+    photos: [tesla, cybertruck],
   },
 ]
 
@@ -21,7 +26,7 @@ const ServiceItem = ({ title, desc }: { title: string; desc: string }) => (
 )
 
 export const ServiceList = () => (
-  <Container className="py-24">
+  <Container>
     <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
       {/* Text Content */}
       <div className="space-y-6 text-center lg:text-left">
@@ -30,20 +35,11 @@ export const ServiceList = () => (
         </h2>
         <div className="space-y-4">
           {services.map((service, index) => (
-            <ServiceItem key={index} {...service} />
+            <div key={index} className="mb-10">
+              <ServiceItem key={index} {...service} />
+              <ImageGrid photos={service.photos} />
+            </div>
           ))}
-        </div>
-      </div>
-      {/* Image */}
-      <div className="flex justify-center">
-        <div className="relative h-72 w-full max-w-lg">
-          <Image
-            src={Logo}
-            alt="Texas Tint Logo"
-            layout="fill"
-            objectFit="contain"
-            className="drop-shadow-xl"
-          />
         </div>
       </div>
     </div>

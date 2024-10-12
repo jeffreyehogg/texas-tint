@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <Container className="py-24 lg:py-32">
+    <Container className="py-24">
       <ContactInfo />
     </Container>
   )
