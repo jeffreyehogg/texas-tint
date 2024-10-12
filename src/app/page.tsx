@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-[calc(100vh-12rem)] overflow-hidden">
         <Image
           src={Benz}
           alt="Luxurious car with scenic backdrop"
@@ -43,7 +43,7 @@ const HomePage = () => {
       </section>
 
       {/* Feature Highlights */}
-      <div className="bg-gray-50 py-16 dark:bg-gray-800">
+      <div className="bg-gray-50 py-16 dark:bg-zinc-900">
         <Container>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="space-y-4 text-center">
