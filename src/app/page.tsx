@@ -76,7 +76,7 @@ const HomePage = () => {
       </div>
 
       {/* Logo */}
-      <div className="flex justify-center">
+      <div className="flex justify-center px-4">
         <div className="relative h-72 w-full max-w-lg">
           <Image
             src={Logo}
