@@ -4,17 +4,19 @@ import Container from '@/components/Container'
 import ImageGrid from '@/components/ImageGrid'
 import tesla from '@/images/vehicles/tesla.jpg'
 import cybertruck from '@/images/vehicles/cyber-truck.jpg'
-
+import c300 from '@/images/vehicles/back-right-c300.jpg'
+import commercial from '@/images/commercial.jpg'
+import home from '@/images/home.jpg'
 const services = [
   {
     title: 'Commercial Buildings',
     desc: 'Professionally installed window film addresses issues like high heat, excessive glare, privacy, and UV protection, all while being cost-effective.',
-    photos: [tesla, cybertruck],
+    photos: [commercial, home],
   },
   {
     title: 'Automotive',
     desc: 'Enhance your vehicle with high-grade tint film that offers 99% UV protection, reduces heat, minimizes glare, and comes with a lifetime warranty.',
-    photos: [tesla, cybertruck],
+    photos: [tesla, cybertruck, c300],
   },
 ]
 
