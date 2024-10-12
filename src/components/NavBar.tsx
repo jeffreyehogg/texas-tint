@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
-import Container from '@/components/Container'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
 const logo = require('@/images/logo.png')
@@ -113,7 +112,7 @@ const MobileNavigation = ({
   )
 }
 
-export const Header = () => {
+const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
@@ -139,7 +138,7 @@ export const Header = () => {
         isLandingPage && !isScrolled ? 'text-shadow' : '',
       )}
     >
-      <div className="container flex items-center justify-between p-4">
+      <div className="container ml-auto flex items-center justify-between p-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image
@@ -196,3 +195,5 @@ export const Header = () => {
     </header>
   )
 }
+
+export default NavBar

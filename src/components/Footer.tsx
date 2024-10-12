@@ -18,7 +18,7 @@ function NavLink({
   )
 }
 
-export function Footer() {
+export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -48,3 +48,5 @@ export function Footer() {
     </footer>
   )
 }
+
+export default Footer
