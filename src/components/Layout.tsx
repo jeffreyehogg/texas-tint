@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import Header from '@/components/NavBar'
+import NavBar from '@/components/NavBar'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +10,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       <div className="relative flex flex-1 flex-col">
-        <Header />
+        <NavBar />
         <main className="flex-grow">{children}</main>
         <Footer />
       </div>
