@@ -139,8 +139,8 @@ export const Header = () => {
         isLandingPage && !isScrolled ? 'text-shadow' : '',
       )}
     >
-      <Container className="flex items-center justify-between py-4">
-        <div className="flex items-center space-x-8">
+      <div className="container flex items-center justify-between p-4">
+        <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image
               src={logo}
@@ -150,7 +150,7 @@ export const Header = () => {
               priority
               className={
                 isScrolled || !isLandingPage ? '' : 'contrast-200 filter'
-              } // Optionally adjust logo contrast
+              }
             />
             <span
               className={clsx(
@@ -163,29 +163,31 @@ export const Header = () => {
               Texas Tint
             </span>
           </Link>
-
-          <div className="flex items-center space-x-4">
-            <DesktopNavigation />
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={clsx(
-                'p-2 transition-colors duration-300',
-                isScrolled || !isLandingPage
-                  ? 'text-gray-700 hover:text-gray-900 dark:hover:text-gray-300'
-                  : 'text-white hover:text-gray-300 dark:hover:text-gray-300',
-                'md:hidden',
-              )}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" />
-              ) : (
-                <Bars3Icon className="h-6 w-6" />
-              )}
-            </button>
-          </div>
         </div>
-      </Container>
+
+        <div className="ml-auto flex items-center space-x-4">
+          {' '}
+          {/* This div now pushes its content to the right */}
+          <DesktopNavigation />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={clsx(
+              'p-2 transition-colors duration-300',
+              isScrolled || !isLandingPage
+                ? 'text-gray-700 hover:text-gray-900 dark:hover:text-gray-300'
+                : 'text-white hover:text-gray-300 dark:hover:text-gray-300',
+              'md:hidden',
+            )}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+      </div>
 
       <MobileNavigation
         isOpen={isMobileMenuOpen}
