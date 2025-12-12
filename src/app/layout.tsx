@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import { Inter } from 'next/font/google' // Import the font
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/react'
 
@@ -6,6 +7,13 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 
 import '@/styles/tailwind.css'
+
+// Configure the font
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -52,8 +60,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth antialiased">
-      <body className="flex min-h-full bg-gray-50 text-zinc-800 dark:bg-zinc-900 dark:text-gray-200">
+    <html
+      lang="en"
+      className={`h-full scroll-smooth antialiased ${inter.variable}`}
+    >
+      <body className="flex min-h-full bg-gray-50 text-zinc-800 dark:bg-zinc-900 dark:text-gray-200 font-sans">
         <Providers>
           <div className="flex w-full flex-col">
             <Layout>{children}</Layout>

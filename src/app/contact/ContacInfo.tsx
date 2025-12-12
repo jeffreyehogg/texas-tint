@@ -3,62 +3,69 @@ import { EnvelopeIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/solid'
 
 export const ContactInfo = () => (
   <Container>
-    <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-      <div className="mr-8 lg:order-first lg:row-span-2">
-        <h2 className="text-4xl font-extrabold text-blue-800 dark:text-white">
-          Contact Us
-        </h2>
-        <div className="mt-6 space-y-7 text-gray-600 dark:text-gray-300">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+      {/* Text Section */}
+      <div className="flex flex-col justify-center space-y-8">
+        <div>
+          <h2 className="text-4xl font-extrabold text-brand-800 dark:text-white">
+            Get in Touch
+          </h2>
+          <div className="mt-4 h-1 w-20 rounded bg-brand-500"></div>
+        </div>
+        
+        <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300">
           <p>
             Texas Tint specializes in commercial and residential building window
             tinting, paint protection film, and car window tinting.
           </p>
           <p>
-            If you have any questions or would like to make a reservation,
-            please contact us by email at{' '}
-            <a
-              href="mailto:office@texastint.com"
-              className="text-[#00205A] dark:text-blue-700"
-            >
-              office@texastint.com{' '}
-            </a>
-            or by phone at{' '}
-            <a
-              href="tel:+1-832-363-5100"
-              className="text-[#00205A] dark:text-blue-700"
-            >
-              +1 (832) 363-5100
-            </a>{' '}
-            and we&apos;ll get back to you as soon as possible.
+            Ready to upgrade your space? We are here to help. Contact us via phone or email, and we will get back to you promptly to schedule your service.
           </p>
         </div>
       </div>
-      <div className="space-y-8 lg:order-last lg:row-span-1">
+
+      {/* Contact Card */}
+      <div className="rounded-3xl bg-zinc-50 p-8 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-800/50 dark:ring-white/10 lg:p-12">
         <ul role="list" className="space-y-8">
-          <div className="m-8 flex space-x-4 border-t border-zinc-100 pt-8 dark:border-zinc-700/40">
-            <ClockIcon className="h-6 w-6 flex-none fill-blue-500" />
-            <span className="group flex text-sm font-medium text-zinc-800 transition dark:text-zinc-200">
-              Mon - Sat: 9:00 AM - 5:00 PM
-            </span>
-          </div>
-          <div className="m-8 flex space-x-4 border-t border-zinc-100 pt-8 dark:border-zinc-700/40">
-            <EnvelopeIcon className="h-6 w-6 flex-none fill-blue-500" />
-            <a
-              href="mailto:office@texastint.com"
-              className="group flex text-sm font-medium text-zinc-800 transition hover:text-[#00205A] dark:text-zinc-200 dark:hover:text-[#00205A]"
-            >
-              office@texastint.com
-            </a>
-          </div>
-          <div className="m-8 flex space-x-4 border-t border-zinc-100 pt-8 dark:border-zinc-700/40">
-            <PhoneIcon className="h-6 w-6 flex-none fill-blue-500" />
-            <a
-              href="tel:+1-832-363-5100"
-              className="group flex text-sm font-medium text-zinc-800 transition hover:text-[#00205A] dark:text-zinc-200 dark:hover:text-[#00205A]"
-            >
-              +1 (832) 363-5100
-            </a>
-          </div>
+          <li className="flex items-start">
+            <div className="flex-none rounded-lg bg-white p-2 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-white/10">
+              <ClockIcon className="h-6 w-6 text-brand-500" />
+            </div>
+            <div className="ml-4">
+              <h3 className="font-semibold text-zinc-900 dark:text-white">Opening Hours</h3>
+              <p className="mt-1 text-zinc-600 dark:text-zinc-400">Mon - Sat: 9:00 AM - 5:00 PM</p>
+            </div>
+          </li>
+          
+          <li className="flex items-start">
+            <div className="flex-none rounded-lg bg-white p-2 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-white/10">
+              <EnvelopeIcon className="h-6 w-6 text-brand-500" />
+            </div>
+            <div className="ml-4">
+              <h3 className="font-semibold text-zinc-900 dark:text-white">Email Us</h3>
+              <a
+                href="mailto:office@texastint.com"
+                className="mt-1 block text-zinc-600 transition hover:text-brand-600 dark:text-zinc-400 dark:hover:text-brand-400"
+              >
+                office@texastint.com
+              </a>
+            </div>
+          </li>
+
+          <li className="flex items-start">
+            <div className="flex-none rounded-lg bg-white p-2 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-white/10">
+              <PhoneIcon className="h-6 w-6 text-brand-500" />
+            </div>
+            <div className="ml-4">
+              <h3 className="font-semibold text-zinc-900 dark:text-white">Call Us</h3>
+              <a
+                href="tel:+1-832-363-5100"
+                className="mt-1 block text-zinc-600 transition hover:text-brand-600 dark:text-zinc-400 dark:hover:text-brand-400"
+              >
+                +1 (832) 363-5100
+              </a>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

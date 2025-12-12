@@ -28,11 +28,10 @@ const NavItem = ({
       <Link
         href={href}
         className={clsx(
-          'rounded-md px-3 py-2 text-sm font-medium transition duration-300',
+          'rounded-full px-4 py-2 text-sm font-medium transition-all duration-300',
           isActive
-            ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400'
-            : 'hover:text-shadow dark:hover:text-shadow',
-          'sm:[&:not(.active)]:text-shadow',
+            ? 'bg-brand-600 text-white shadow-md'
+            : 'hover:bg-white/10 hover:text-brand-300',
         )}
       >
         {children}
@@ -43,7 +42,7 @@ const NavItem = ({
 
 const DesktopNavigation = () => (
   <nav className="hidden md:block">
-    <ul className="flex space-x-4">
+    <ul className="flex space-x-2">
       <NavItem href="/">Home</NavItem>
       <NavItem href="/services">Services</NavItem>
       <NavItem href="/contact">Contact</NavItem>
@@ -80,33 +79,33 @@ const MobileNavigation = ({
     <div
       ref={menuRef}
       className={clsx(
-        'fixed inset-0 bg-black bg-opacity-50 transition-opacity',
+        'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity',
         isOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
       )}
     >
       <div
         className={clsx(
-          'absolute right-0 mt-2 w-56 transform rounded-lg bg-white text-gray-900 shadow-xl transition-all dark:bg-zinc-900 dark:text-white',
+          'absolute right-0 h-full w-64 transform bg-white p-6 shadow-2xl transition-transform dark:bg-zinc-900',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
       >
         <button
           onClick={onClose}
-          className="absolute right-2 top-2 p-2 text-gray-600"
+          className="absolute right-4 top-4 p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
         >
-          <XMarkIcon className="h-5 w-5" />
+          <XMarkIcon className="h-6 w-6" />
         </button>
-        <ul className="text-shadow p-2">
-          <NavItem href="/" onClick={onClose}>
+        <div className="mt-8 flex flex-col space-y-4">
+          <Link href="/" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
             Home
-          </NavItem>
-          <NavItem href="/services" onClick={onClose}>
+          </Link>
+          <Link href="/services" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
             Services
-          </NavItem>
-          <NavItem href="/contact" onClick={onClose}>
+          </Link>
+          <Link href="/contact" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
             Contact
-          </NavItem>
-        </ul>
+          </Link>
+        </div>
       </div>
     </div>
   )
@@ -119,7 +118,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -131,59 +130,50 @@ const NavBar = () => {
   return (
     <header
       className={clsx(
-        'fixed top-0 z-50 w-full transition-colors duration-300',
+        'fixed top-0 z-40 w-full transition-all duration-500 ease-in-out',
         isScrolled || !isLandingPage
-          ? 'bg-white text-gray-900 shadow-md dark:bg-zinc-900 dark:text-white'
-          : 'bg-transparent text-white dark:text-white',
-        isLandingPage && !isScrolled ? 'text-shadow' : '',
+          ? 'bg-white/90 py-3 shadow-lg backdrop-blur-md dark:bg-zinc-900/90'
+          : 'bg-transparent py-6',
+        isLandingPage && !isScrolled ? 'text-white' : 'text-gray-900 dark:text-white',
       )}
     >
-      <div className="container m-auto flex items-center justify-between p-4">
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center">
-            <Image
+      <div className="container mx-auto flex items-center justify-between px-6">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className={clsx(
+            "relative transition-transform duration-300 group-hover:scale-105",
+             isScrolled || !isLandingPage ? "" : "brightness-0 invert"
+          )}>
+             <Image
               src={logo}
               alt="Texas Tint Logo"
               width={40}
               height={40}
               priority
-              className={
-                isScrolled || !isLandingPage ? '' : 'contrast-200 filter'
-              }
             />
-            <span
-              className={clsx(
-                'ml-2 hidden text-2xl font-bold sm:inline',
-                isScrolled || !isLandingPage
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : 'text-white dark:text-white',
-              )}
-            >
-              Texas Tint
-            </span>
-          </Link>
-        </div>
+          </div>
+          <span
+            className={clsx(
+              'text-xl font-bold tracking-tight transition-colors',
+              isScrolled || !isLandingPage
+                ? 'text-brand-700 dark:text-brand-400'
+                : 'text-white',
+            )}
+          >
+            Texas Tint
+          </span>
+        </Link>
 
-        <div className="ml-auto flex items-center space-x-4">
-          {' '}
-          {/* This div now pushes its content to the right */}
+        <div className="flex items-center gap-6">
           <DesktopNavigation />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={clsx(
-              'p-2 transition-colors duration-300',
-              isScrolled || !isLandingPage
-                ? 'text-gray-700 hover:text-gray-900 dark:hover:text-gray-300'
-                : 'text-white hover:text-gray-300 dark:hover:text-gray-300',
-              'md:hidden',
+              'rounded-full p-2 transition-colors hover:bg-gray-100/20 md:hidden',
+              isScrolled || !isLandingPage ? 'text-gray-900 dark:text-white' : 'text-white'
             )}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
-              <Bars3Icon className="h-6 w-6" />
-            )}
+            <Bars3Icon className="h-6 w-6" />
           </button>
         </div>
       </div>
