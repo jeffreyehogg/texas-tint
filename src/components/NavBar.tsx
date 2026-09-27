@@ -15,23 +15,33 @@ const NavItem = ({
   href,
   children,
   onClick,
+  isProminent = false,
+  isScrolled = false,
+  isLandingPage = false,
 }: {
   href: string
   children: React.ReactNode
   onClick?: () => void
+  isProminent?: boolean
+  isScrolled?: boolean
+  isLandingPage?: boolean
 }) => {
   const pathname = usePathname()
   const isActive = isActivePath(pathname, href)
+  
+  const textClass = isScrolled || !isLandingPage
+    ? (isActive ? 'text-white' : isProminent ? 'text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-900/20' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800')
+    : (isActive ? 'text-white' : isProminent ? 'text-brand-300 hover:bg-white/10' : 'text-gray-100 hover:bg-white/10 hover:text-white')
 
   return (
-    <li onClick={onClick} className="cursor-pointer">
+    <li onClick={onClick} className="cursor-pointer list-none">
       <Link
         href={href}
         className={clsx(
-          'rounded-full px-4 py-2 text-sm font-medium transition-all duration-300',
-          isActive
-            ? 'bg-brand-600 text-white shadow-md'
-            : 'hover:bg-white/10 hover:text-brand-300',
+          'rounded-full px-4 py-2 text-sm transition-all duration-300',
+          isProminent ? 'font-bold' : 'font-medium',
+          isActive && 'bg-brand-600 shadow-md',
+          !isActive && textClass
         )}
       >
         {children}
@@ -40,13 +50,23 @@ const NavItem = ({
   )
 }
 
-const DesktopNavigation = () => (
-  <nav className="hidden md:block">
-    <ul className="flex space-x-2">
-      <NavItem href="/">Home</NavItem>
-      <NavItem href="/services">Services</NavItem>
-      <NavItem href="/contact">Contact</NavItem>
+const DesktopNavigation = ({ isScrolled, isLandingPage }: { isScrolled: boolean, isLandingPage: boolean }) => (
+  <nav className="hidden md:flex items-center space-x-2">
+    <ul className="flex items-center space-x-1 m-0 p-0">
+      <NavItem href="/" isScrolled={isScrolled} isLandingPage={isLandingPage}>Home</NavItem>
+      <NavItem href="/commercial" isProminent isScrolled={isScrolled} isLandingPage={isLandingPage}>Commercial</NavItem>
+      <NavItem href="/residential" isScrolled={isScrolled} isLandingPage={isLandingPage}>Residential</NavItem>
+      <NavItem href="/automotive" isScrolled={isScrolled} isLandingPage={isLandingPage}>Automotive</NavItem>
+      <NavItem href="/contact" isScrolled={isScrolled} isLandingPage={isLandingPage}>Contact</NavItem>
     </ul>
+    <div className="pl-4 ml-4 border-l border-gray-300 dark:border-gray-700">
+      <Link
+        href="/quote"
+        className="inline-flex items-center justify-center rounded-full bg-brand-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-colors"
+      >
+        Get a Commercial Quote
+      </Link>
+    </div>
   </nav>
 )
 
@@ -79,13 +99,13 @@ const MobileNavigation = ({
     <div
       ref={menuRef}
       className={clsx(
-        'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity',
+        'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity md:hidden',
         isOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
       )}
     >
       <div
         className={clsx(
-          'absolute right-0 h-full w-64 transform bg-white p-6 shadow-2xl transition-transform dark:bg-zinc-900',
+          'absolute right-0 h-full w-72 transform bg-white p-6 shadow-2xl transition-transform dark:bg-zinc-900 overflow-y-auto',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
       >
@@ -99,12 +119,27 @@ const MobileNavigation = ({
           <Link href="/" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
             Home
           </Link>
-          <Link href="/services" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
-            Services
+          <Link href="/commercial" onClick={onClose} className="text-lg font-bold text-brand-600 dark:text-brand-400">
+            Commercial
+          </Link>
+          <Link href="/residential" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
+            Residential
+          </Link>
+          <Link href="/automotive" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
+            Automotive
           </Link>
           <Link href="/contact" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
             Contact
           </Link>
+          <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-800">
+            <Link
+              href="/quote"
+              onClick={onClose}
+              className="block w-full rounded-full bg-brand-600 px-6 py-3 text-center text-base font-semibold text-white shadow-sm hover:bg-brand-500"
+            >
+              Get a Commercial Quote
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -164,7 +199,7 @@ const NavBar = () => {
         </Link>
 
         <div className="flex items-center gap-6">
-          <DesktopNavigation />
+          <DesktopNavigation isScrolled={isScrolled} isLandingPage={isLandingPage} />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={clsx(

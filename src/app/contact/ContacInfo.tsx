@@ -61,12 +61,13 @@ export const ContactInfo = () => (
 
           <div className="space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
             <p>
-              Texas Tint specializes in premium window tinting for automotive,
-              residential, and commercial applications.
+              Based in Houston, TX, Texas Tint specializes in premium window tinting
+              with a strong focus on commercial applications, as well as residential
+              and automotive solutions.
             </p>
             <p>
-              Ready to upgrade your space? Contact us today to schedule your
-              free consultation.
+              We proudly serve the greater Houston metropolitan area. Ready to upgrade
+              your space? Contact us today to schedule your free consultation.
             </p>
           </div>
         </div>

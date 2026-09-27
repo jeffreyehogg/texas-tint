@@ -48,42 +48,80 @@ export const Footer = () => {
   return (
     <footer className="mt-auto flex-none bg-zinc-100 dark:bg-zinc-950">
       <Container>
-        <div className="py-10">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            {/* Navigation Links */}
-            <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium">
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/services">Services</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
-            </nav>
-
-            {/* Social & Copyright */}
-            <div className="flex flex-col items-center gap-6 md:flex-row">
-              <div className="flex gap-4">
-                <a
-                  href="https://www.facebook.com/TexasTintPlusLLC/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-full bg-white p-2 text-[#1877F2] shadow-sm ring-1 ring-[#1877F2]/20 transition dark:bg-zinc-800 dark:text-zinc-400 dark:ring-white/10"
-                  aria-label="Follow us on Facebook"
-                >
-                  <FacebookIcon className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/texastintplus/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-full bg-white p-2 text-[#E4405F] shadow-sm ring-1 ring-[#E4405F]/20 transition dark:bg-zinc-800 dark:text-zinc-400 dark:ring-white/10"
-                  aria-label="Follow us on Instagram"
-                >
-                  <InstagramIcon className="h-5 w-5" />
-                </a>
-              </div>
-
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                &copy; {currentYear} Texas Tint Plus, LLC.
+        <div className="py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+            {/* Column 1: Company Info */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">Texas Tint Plus LLC</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Houston&apos;s authority in commercial window film solutions. Enhancing energy efficiency, security, and privacy for businesses.
               </p>
+              <div className="flex flex-col gap-2 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                <p>Houston, TX</p>
+                <a href="tel:8323635100" className="hover:text-brand-600 dark:hover:text-brand-400">(832) 363-5100</a>
+                <a href="mailto:office@texastint.com" className="hover:text-brand-600 dark:hover:text-brand-400">office@texastint.com</a>
+              </div>
             </div>
+
+            {/* Column 2: Services */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Services</h3>
+              <ul className="flex flex-col gap-3 text-sm">
+                <li><NavLink href="/commercial">Commercial Window Film</NavLink></li>
+                <li><NavLink href="/residential">Residential Tinting</NavLink></li>
+                <li><NavLink href="/automotive">Automotive Tinting</NavLink></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Company */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Company</h3>
+              <ul className="flex flex-col gap-3 text-sm">
+                <li><NavLink href="/contact">Contact Us</NavLink></li>
+                <li><NavLink href="/quote">Get a Quote</NavLink></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Service Areas */}
+            <div className="flex flex-col gap-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Service Areas</h3>
+              <ul className="flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                <li>Houston</li>
+                <li>The Woodlands</li>
+                <li>Katy</li>
+                <li>Sugar Land</li>
+                <li>Cypress</li>
+                <li>Spring</li>
+                <li>Pearland</li>
+                <li>Missouri City</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex gap-4">
+              <a
+                href="https://www.facebook.com/TexasTintPlusLLC/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-full bg-white p-2 text-[#1877F2] shadow-sm ring-1 ring-[#1877F2]/20 transition dark:bg-zinc-900 dark:text-zinc-400 dark:ring-white/10 hover:dark:text-[#1877F2]"
+                aria-label="Follow us on Facebook"
+              >
+                <FacebookIcon className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/texastintplus/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-full bg-white p-2 text-[#E4405F] shadow-sm ring-1 ring-[#E4405F]/20 transition dark:bg-zinc-900 dark:text-zinc-400 dark:ring-white/10 hover:dark:text-[#E4405F]"
+                aria-label="Follow us on Instagram"
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </a>
+            </div>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              &copy; {currentYear} Texas Tint Plus, LLC. All rights reserved.
+            </p>
           </div>
         </div>
       </Container>
