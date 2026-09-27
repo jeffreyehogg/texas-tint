@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Container from '@/components/Container'
+import FaqSection from '@/components/FaqSection'
 import Building from '@/images/building.jpg'
 import HomeImage from '@/images/home.jpg'
 import Benz from '@/images/vehicles/benz.jpg'
@@ -228,7 +229,10 @@ export default function Home() {
         </Container>
       </div>
 
-      {/* 6. Final CTA Section */}
+      {/* 6. Frequently Asked Questions */}
+      <FaqSection />
+
+      {/* 7. Final CTA Section */}
       <div className="bg-brand-700">
         <Container>
           <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">

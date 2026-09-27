@@ -1,8 +1,8 @@
-import Container from '@/components/Container'
 import {
   EnvelopeIcon,
   PhoneIcon,
   ClockIcon,
+  MapPinIcon,
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/solid'
 
@@ -32,22 +32,10 @@ function InstagramIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function YelpIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M12.002 1.996c-.33 0-.64.16-.84.44l-2.02 2.84 2.87 1.09c.39.15.82-.01 1.05-.36.23-.36.2-.82-.09-1.15l-1.97-2.86zM9.6 6.89l-2.87-1.1-1.32 2.76c-.19.39-.06.86.3 1.12l.06.04c.36.24.84.21 1.17-.07l2.66-2.25zM6.92 9.17c-.36-.21-.82-.16-1.13.13l-2.27 2.1c-.28.26-.35.68-.17 1.02l1.37 2.65 2.2-2.1c.29-.28.32-.73.12-1.08zm4.33 2.08l-1.12 2.89c-.15.39.02.84.38 1.06l.04.02c.38.22.86.13 1.14-.21l1.66-2.15-2.1-1.61zm2.93-1.66l-2.12 1.62 1.65 2.16c.25.33.72.41 1.09.2l2.69-1.55c.36-.21.49-.66.29-1.02l-1.43-2.48z"
-        clipRule="evenodd"
-      />
-    </svg>
-  )
-}
-
 // --- Main Component ---
 
 export const ContactInfo = () => (
-  <Container>
+  <div className="space-y-16">
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
       {/* Left Column: Text & Socials */}
       <div className="flex flex-col justify-start space-y-12">
@@ -61,13 +49,15 @@ export const ContactInfo = () => (
 
           <div className="space-y-4 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
             <p>
-              Based in Houston, TX, Texas Tint specializes in premium window tinting
-              with a strong focus on commercial applications, as well as residential
-              and automotive solutions.
+              Headquartered in Conroe, TX, Texas Tint Plus specializes in premium
+              window tinting with a strong focus on commercial applications, as
+              well as residential and automotive solutions.
             </p>
             <p>
-              We proudly serve the greater Houston metropolitan area. Ready to upgrade
-              your space? Contact us today to schedule your free consultation.
+              We proudly serve Montgomery County, Conroe, The Woodlands, Spring,
+              Cypress, Katy, Sugar Land, and the greater Houston metropolitan
+              area. Ready to upgrade your property? Contact us today to schedule
+              your free consultation.
             </p>
           </div>
         </div>
@@ -122,6 +112,31 @@ export const ContactInfo = () => (
         <ul role="list" className="space-y-8">
           <li className="flex items-start">
             <div className="flex-none rounded-xl bg-white p-3 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-white/10">
+              <MapPinIcon className="h-6 w-6 text-brand-600" />
+            </div>
+            <div className="ml-5">
+              <h3 className="font-bold text-zinc-900 dark:text-white">
+                Facility &amp; Head Office
+              </h3>
+              <p className="mt-1 text-zinc-600 dark:text-zinc-400">
+                16753 Donwick Dr STE A12
+                <br />
+                Conroe, TX 77385
+              </p>
+              <a
+                href="https://maps.google.com/?q=16753+Donwick+Dr+STE+A12,+Conroe,+TX+77385"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition hover:text-brand-500 dark:text-brand-400 dark:hover:text-brand-300"
+              >
+                <span>Get Directions</span>
+                <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+              </a>
+            </div>
+          </li>
+
+          <li className="flex items-start">
+            <div className="flex-none rounded-xl bg-white p-3 shadow-sm ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-white/10">
               <ClockIcon className="h-6 w-6 text-brand-600" />
             </div>
             <div className="ml-5">
@@ -142,12 +157,20 @@ export const ContactInfo = () => (
               <h3 className="font-bold text-zinc-900 dark:text-white">
                 Email Us
               </h3>
-              <a
-                href="mailto:office@texastint.com"
-                className="mt-1 block text-zinc-600 transition hover:text-brand-600 dark:text-zinc-400 dark:hover:text-brand-400"
-              >
-                office@texastint.com
-              </a>
+              <div className="mt-1 space-y-1">
+                <a
+                  href="mailto:office@texastint.com"
+                  className="block text-zinc-600 transition hover:text-brand-600 dark:text-zinc-400 dark:hover:text-brand-400"
+                >
+                  office@texastint.com
+                </a>
+                <a
+                  href="mailto:texastintplus@gmail.com"
+                  className="block text-zinc-600 transition hover:text-brand-600 dark:text-zinc-400 dark:hover:text-brand-400"
+                >
+                  texastintplus@gmail.com
+                </a>
+              </div>
             </div>
           </li>
 
@@ -170,5 +193,49 @@ export const ContactInfo = () => (
         </ul>
       </div>
     </div>
-  </Container>
+
+    {/* Physical Facility Card with Google Maps */}
+    <div className="overflow-hidden rounded-3xl bg-zinc-50 p-6 shadow-sm ring-1 ring-zinc-900/5 sm:p-10 dark:bg-zinc-800/50 dark:ring-white/10">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <div className="flex items-center gap-2">
+            <MapPinIcon className="h-6 w-6 text-brand-600 dark:text-brand-400" />
+            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">
+              Physical Facility Location
+            </h3>
+          </div>
+          <p className="mt-2 text-base font-medium text-zinc-700 dark:text-zinc-200">
+            16753 Donwick Dr STE A12, Conroe, TX 77385
+          </p>
+          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+            Serving Montgomery County, Conroe, The Woodlands, Spring, Cypress,
+            Katy, Sugar Land &amp; Greater Houston Metro.
+          </p>
+        </div>
+        <div className="flex flex-none items-center gap-3">
+          <a
+            href="https://maps.google.com/?q=16753+Donwick+Dr+STE+A12,+Conroe,+TX+77385"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+          >
+            <span>Open in Google Maps</span>
+            <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+
+      {/* Clean responsive Google Maps wrapper */}
+      <div className="relative h-80 w-full overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-inner sm:h-96 lg:h-[420px] dark:border-zinc-700/60 dark:bg-zinc-900">
+        <iframe
+          title="Texas Tint Plus LLC - Conroe, TX Facility Location"
+          src="https://maps.google.com/maps?q=16753%20Donwick%20Dr%20STE%20A12,%20Conroe,%20TX%2077385&t=m&z=14&output=embed&iwloc=near"
+          className="absolute inset-0 h-full w-full border-0"
+          allowFullScreen={false}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    </div>
+  </div>
 )

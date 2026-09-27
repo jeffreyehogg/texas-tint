@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Dialog, Transition } from '@headlessui/react'
 
 const logo = require('@/images/logo.png')
 
@@ -77,72 +78,117 @@ const MobileNavigation = ({
   isOpen: boolean
   onClose: () => void
 }) => {
-  const menuRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onClose()
-      }
-    }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [isOpen, onClose])
-
   return (
-    <div
-      ref={menuRef}
-      className={clsx(
-        'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity md:hidden',
-        isOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
-      )}
-    >
-      <div
-        className={clsx(
-          'absolute right-0 h-full w-72 transform bg-white p-6 shadow-2xl transition-transform dark:bg-zinc-900 overflow-y-auto',
-          isOpen ? 'translate-x-0' : 'translate-x-full',
-        )}
-      >
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+    <Transition.Root show={isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-[100] md:hidden" onClose={onClose}>
+        <Transition.Child
+          as={Fragment}
+          enter="transition-opacity ease-linear duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity ease-linear duration-300"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
-          <XMarkIcon className="h-6 w-6" />
-        </button>
-        <div className="mt-8 flex flex-col space-y-4">
-          <Link href="/" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
-            Home
-          </Link>
-          <Link href="/commercial" onClick={onClose} className="text-lg font-bold text-brand-600 dark:text-brand-400">
-            Commercial
-          </Link>
-          <Link href="/residential" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
-            Residential
-          </Link>
-          <Link href="/automotive" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
-            Automotive
-          </Link>
-          <Link href="/contact" onClick={onClose} className="text-lg font-semibold text-gray-900 dark:text-white">
-            Contact
-          </Link>
-          <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-800">
-            <Link
-              href="/quote"
-              onClick={onClose}
-              className="block w-full rounded-full bg-brand-600 px-6 py-3 text-center text-base font-semibold text-white shadow-sm hover:bg-brand-500"
-            >
-              Get a Commercial Quote
-            </Link>
-          </div>
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" />
+        </Transition.Child>
+
+        <div className="fixed inset-0 z-[100] flex justify-end">
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in-out duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="translate-x-full"
+          >
+            <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white p-6 shadow-2xl dark:bg-zinc-900 overflow-y-auto">
+              <div className="flex items-center justify-between pb-6 border-b border-gray-100 dark:border-zinc-800">
+                <Link href="/" onClick={onClose} className="flex items-center gap-2">
+                  <Image
+                    src={logo}
+                    alt="Texas Tint Logo"
+                    width={36}
+                    height={36}
+                  />
+                  <span className="font-bold text-lg text-zinc-900 dark:text-white">Texas Tint</span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+                  aria-label="Close menu"
+                >
+                  <XMarkIcon className="h-6 w-6" />
+                </button>
+              </div>
+
+              <div className="mt-6 flex flex-col space-y-2">
+                <Link
+                  href="/"
+                  onClick={onClose}
+                  className="rounded-xl px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-zinc-800 transition-colors"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/commercial"
+                  onClick={onClose}
+                  className="rounded-xl bg-brand-50 px-4 py-3 text-base font-bold text-brand-600 dark:bg-brand-900/30 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-brand-900/50 transition-colors"
+                >
+                  Commercial Window Film
+                </Link>
+                <Link
+                  href="/residential"
+                  onClick={onClose}
+                  className="rounded-xl px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-zinc-800 transition-colors"
+                >
+                  Residential Tinting
+                </Link>
+                <Link
+                  href="/automotive"
+                  onClick={onClose}
+                  className="rounded-xl px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-zinc-800 transition-colors"
+                >
+                  Automotive Tinting
+                </Link>
+                <Link
+                  href="/services"
+                  onClick={onClose}
+                  className="rounded-xl px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-zinc-800 transition-colors"
+                >
+                  All Services
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={onClose}
+                  className="rounded-xl px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-zinc-800 transition-colors"
+                >
+                  Contact
+                </Link>
+              </div>
+
+              <div className="mt-auto pt-6 border-t border-gray-100 dark:border-zinc-800 space-y-3">
+                <Link
+                  href="/quote"
+                  onClick={onClose}
+                  className="block w-full rounded-full bg-brand-600 px-6 py-3.5 text-center text-sm font-semibold text-white shadow-md hover:bg-brand-500 transition-colors"
+                >
+                  Get a Commercial Quote
+                </Link>
+                <a
+                  href="tel:8323635100"
+                  className="block w-full text-center text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 py-1"
+                >
+                  Call (832) 363-5100
+                </a>
+              </div>
+            </Dialog.Panel>
+          </Transition.Child>
         </div>
-      </div>
-    </div>
+      </Dialog>
+    </Transition.Root>
   )
 }
 
@@ -165,7 +211,7 @@ const NavBar = () => {
   return (
     <header
       className={clsx(
-        'fixed top-0 z-40 w-full transition-all duration-500 ease-in-out',
+        'fixed top-0 z-50 w-full transition-all duration-500 ease-in-out',
         isScrolled || !isLandingPage
           ? 'bg-white/90 py-3 shadow-lg backdrop-blur-md dark:bg-zinc-900/90'
           : 'bg-transparent py-6',

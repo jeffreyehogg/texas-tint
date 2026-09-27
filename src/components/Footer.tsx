@@ -57,7 +57,8 @@ export const Footer = () => {
                 Houston&apos;s authority in commercial window film solutions. Enhancing energy efficiency, security, and privacy for businesses.
               </p>
               <div className="flex flex-col gap-2 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <p>Houston, TX</p>
+                <p>16753 Donwick Dr STE A12, Conroe, TX 77385</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400">(Serving The Woodlands &amp; Greater Houston)</p>
                 <a href="tel:8323635100" className="hover:text-brand-600 dark:hover:text-brand-400">(832) 363-5100</a>
                 <a href="mailto:office@texastint.com" className="hover:text-brand-600 dark:hover:text-brand-400">office@texastint.com</a>
               </div>
@@ -86,14 +87,14 @@ export const Footer = () => {
             <div className="flex flex-col gap-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">Service Areas</h3>
               <ul className="flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-                <li>Houston</li>
+                <li>Conroe</li>
+                <li>Montgomery County</li>
                 <li>The Woodlands</li>
+                <li>Houston</li>
+                <li>Spring</li>
+                <li>Cypress</li>
                 <li>Katy</li>
                 <li>Sugar Land</li>
-                <li>Cypress</li>
-                <li>Spring</li>
-                <li>Pearland</li>
-                <li>Missouri City</li>
               </ul>
             </div>
           </div>

@@ -6,13 +6,13 @@ import { ContactInfo } from './ContacInfo'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Texas Tint in Houston, TX for a free quote or to schedule an appointment. We specialize in commercial and residential window tinting, and more.',
+    'Contact Texas Tint Plus in Conroe, TX. Serving Montgomery County, The Woodlands, Conroe, and the Greater Houston area with commercial, residential, and automotive window tinting solutions.',
 }
 
 const ContactPage = () => {
   return (
     <Container className="py-24 lg:py-32">
-      <div className="mb-16 rounded-3xl bg-brand-50 p-8 ring-1 ring-brand-900/5 dark:bg-brand-900/10 dark:ring-brand-400/20 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="mb-16 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl bg-brand-50 p-8 ring-1 ring-brand-900/5 sm:p-10 dark:bg-brand-900/10 dark:ring-brand-400/20">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Looking for a Commercial Estimate?
