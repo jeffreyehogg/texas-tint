@@ -5,6 +5,8 @@ import Container from '@/components/Container'
 
 // Authentic commercial assets
 import CommercialBuilding from '@/images/commercial/commercial-building.webp'
+import CorporateBuilding from '@/images/commercial/corporate-building.jpg'
+import ModernGlassTower from '@/images/commercial/modern-glass-tower.jpg'
 import SolarFilm from '@/images/commercial/solar-film.webp'
 import SecurityFilm from '@/images/commercial/security-film.jpg'
 import DecorativeFilm from '@/images/commercial/decorative-film.jpg'
@@ -244,12 +246,12 @@ export default function CommercialPage() {
       <section className="relative isolate min-h-[640px] w-full overflow-hidden bg-zinc-950 flex items-center justify-center">
         {/* Background Image with optimized Next.js priority */}
         <Image
-          src={CommercialBuilding}
+          src={CorporateBuilding}
           alt="Modern commercial facility with architectural window film"
           fill
           sizes="100vw"
           priority
-          className="absolute inset-0 -z-10 object-cover opacity-30 mix-blend-luminosity filter contrast-125"
+          className="absolute inset-0 -z-10 object-cover object-center brightness-[0.72] contrast-[1.08] saturate-[1.12]"
         />
         {/* Cinematic gradient overlays for maximum text legibility */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-zinc-900/60" />

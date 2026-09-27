@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Container from '@/components/Container'
 import FaqSection from '@/components/FaqSection'
+import ModernGlassTower from '@/images/commercial/modern-glass-tower.jpg'
 import Building from '@/images/building.jpg'
 import HomeImage from '@/images/home.jpg'
 import Benz from '@/images/vehicles/benz.jpg'
-import Logo from '@/images/tint-logo.png'
 import {
   ShieldCheckIcon,
   EyeSlashIcon,
@@ -13,72 +13,178 @@ import {
   BriefcaseIcon,
   DocumentCheckIcon,
   StarIcon,
-  SunIcon
+  SunIcon,
+  ArrowRightIcon,
+  PhoneIcon,
+  CheckCircleIcon,
+  SparklesIcon
 } from '@heroicons/react/24/outline'
 
 export default function Home() {
   return (
     <>
       {/* 1. Commercial Authority Hero */}
-      <div className="relative isolate overflow-hidden bg-zinc-900 pt-14">
+      <div className="relative isolate overflow-hidden bg-zinc-950 pt-20 lg:pt-24">
+        {/* High-Resolution Architectural Glass Background */}
         <Image
-          src={Building}
-          alt="Commercial window tinting on a modern glass building"
+          src={ModernGlassTower}
+          alt="Modern commercial architectural glass office building with solar window film"
           fill
           sizes="100vw"
           priority
-          className="absolute inset-0 -z-10 object-cover opacity-30 mix-blend-multiply"
+          className="absolute inset-0 -z-10 object-cover object-center brightness-[0.72] contrast-[1.08] saturate-[1.12]"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-zinc-900 via-zinc-900/80 to-zinc-900/10" />
+        {/* Directional Gradients for Maximum Readability and Image Visibility */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-zinc-950/20 lg:to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
 
         <Container>
-          <div className="py-24 sm:py-32 lg:py-40">
-            <div className="mx-auto max-w-2xl lg:mx-0">
-              <div className="mb-8 w-48 sm:w-64 h-24 relative">
-                <Image
-                  src={Logo}
-                  alt="Texas Tint Logo"
-                  fill
-                  className="object-contain object-left"
-                  priority
-                />
+          <div className="py-16 sm:py-24 lg:py-28">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Left Column: Headlines & Call to Actions */}
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-2.5 rounded-full bg-brand-500/15 border border-brand-400/30 px-4 py-1.5 text-xs sm:text-sm font-semibold text-brand-300 backdrop-blur-md mb-6 shadow-sm">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-500" />
+                  </span>
+                  Commercial Window Film Authority • Houston &amp; The Woodlands
+                </div>
+
+                <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.12]">
+                  Houston&apos;s Premier{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-sky-200">
+                    Commercial Window Film
+                  </span>{' '}
+                  Authority
+                </h1>
+
+                <p className="mt-6 text-lg sm:text-xl leading-8 text-zinc-200 max-w-2xl font-normal drop-shadow-sm">
+                  Engineered solar heat reduction, 3M security, and privacy films tailored for office buildings, storefronts, and facilities across Houston and Montgomery County. Lower HVAC cooling costs by up to 30% while protecting your tenants and assets.
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
+                  <Link
+                    href="/quote"
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-600/30 hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    <span>Request a Commercial Bid</span>
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </Link>
+
+                  <a
+                    href="tel:8323635100"
+                    className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300"
+                  >
+                    <PhoneIcon className="h-4 w-4 text-brand-300" />
+                    <span>(832) 363-5100</span>
+                  </a>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/15 flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-zinc-300">
+                  <span className="inline-flex items-center gap-1.5">
+                    <CheckCircleIcon className="h-4 w-4 text-brand-400" /> Licensed &amp; Fully Insured (COI Provided)
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <CheckCircleIcon className="h-4 w-4 text-brand-400" /> Manufacturer Certified (3M &amp; XPEL)
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <CheckCircleIcon className="h-4 w-4 text-brand-400" /> Zero-Disruption After-Hours Installs
+                  </span>
+                </div>
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Houston&apos;s Premier Commercial Window Film Authority
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-zinc-300">
-                Enhance your commercial property with advanced window film solutions. Reduce energy costs, improve tenant comfort, and elevate security and privacy for offices, retail spaces, and facilities across Houston.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-6">
-                <Link
-                  href="/quote"
-                  className="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all duration-300"
-                >
-                  Request a Commercial Bid
-                </Link>
-                <Link href="/commercial" className="text-sm font-semibold leading-6 text-white hover:text-brand-300 transition-colors">
-                  Explore Our Solutions <span aria-hidden="true">→</span>
-                </Link>
+
+              {/* Right Column: Executive Frosted Glass Performance Card */}
+              <div className="lg:col-span-5">
+                <div className="relative rounded-3xl bg-zinc-900/65 backdrop-blur-xl border border-white/15 p-6 sm:p-8 shadow-2xl shadow-black/60">
+                  <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-48 h-48 bg-brand-500/20 rounded-full blur-3xl pointer-events-none" />
+
+                  <div className="flex items-center justify-between pb-5 border-b border-white/10">
+                    <div>
+                      <span className="text-xs uppercase tracking-wider font-semibold text-brand-400">Architectural Specifications</span>
+                      <h3 className="text-xl font-bold text-white mt-1">Facility Performance Impact</h3>
+                    </div>
+                    <SparklesIcon className="h-6 w-6 text-brand-400" />
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    <div className="flex items-start gap-4 p-3.5 rounded-2xl bg-white/[0.04] border border-white/5 hover:border-brand-500/30 transition-colors">
+                      <div className="p-2 rounded-xl bg-brand-500/10 text-brand-400 shrink-0">
+                        <SunIcon className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-white flex items-center gap-2">
+                          <span>Up to 75% Solar Heat Blocked</span>
+                          <span className="text-[10px] uppercase font-bold bg-brand-500/20 text-brand-300 px-2 py-0.5 rounded-full">High ROI</span>
+                        </div>
+                        <p className="text-xs text-zinc-300 mt-1 leading-relaxed">
+                          Eliminates tenant hot spots and dramatically curtails building perimeter cooling strain.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 p-3.5 rounded-2xl bg-white/[0.04] border border-white/5 hover:border-brand-500/30 transition-colors">
+                      <div className="p-2 rounded-xl bg-brand-500/10 text-brand-400 shrink-0">
+                        <LockClosedIcon className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-white flex items-center gap-2">
+                          <span>3M Security (7, 8 &amp; 14 mil)</span>
+                          <span className="text-[10px] uppercase font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">Anti-Shatter</span>
+                        </div>
+                        <p className="text-xs text-zinc-300 mt-1 leading-relaxed">
+                          Micro-layered tear resistance protects against forced entry, smash-and-grabs, and storms.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4 p-3.5 rounded-2xl bg-white/[0.04] border border-white/5 hover:border-brand-500/30 transition-colors">
+                      <div className="p-2 rounded-xl bg-brand-500/10 text-brand-400 shrink-0">
+                        <ShieldCheckIcon className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-white flex items-center gap-2">
+                          <span>99% UV Radiation Defense</span>
+                          <span className="text-[10px] uppercase font-bold bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-full">Asset Protection</span>
+                        </div>
+                        <p className="text-xs text-zinc-300 mt-1 leading-relaxed">
+                          Preserves office furnishings, artwork, and computer screens while reducing glare by 93%.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-zinc-300">
+                    <span>Warranty: <strong className="text-white">10–15 Yrs (Interior)</strong></span>
+                    <Link href="/commercial" className="font-semibold text-brand-400 hover:text-brand-300 flex items-center gap-1 transition-colors">
+                      View All Specs <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </Container>
 
-        {/* Stat Badges */}
-        <div className="absolute bottom-0 w-full bg-zinc-900/80 backdrop-blur-sm border-t border-white/10 hidden md:block">
+        {/* Responsive Commercial Stat Badges Bar */}
+        <div className="w-full bg-zinc-950/90 backdrop-blur-md border-t border-white/10">
           <Container>
-            <div className="grid grid-cols-3 gap-8 py-6 text-center text-sm font-semibold text-white">
-              <div className="flex flex-col items-center justify-center gap-2">
-                <span className="text-3xl font-bold text-brand-400">30%</span>
-                <span>Energy Savings</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 text-center text-white">
+              <div className="flex flex-col items-center justify-center p-2">
+                <span className="text-3xl sm:text-4xl font-extrabold text-brand-400 tracking-tight">30%</span>
+                <span className="text-xs sm:text-sm font-medium text-zinc-300 mt-1">HVAC Energy Savings</span>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <span className="text-3xl font-bold text-brand-400">99%</span>
-                <span>UV Blocked</span>
+              <div className="flex flex-col items-center justify-center p-2">
+                <span className="text-3xl sm:text-4xl font-extrabold text-brand-400 tracking-tight">75%</span>
+                <span className="text-xs sm:text-sm font-medium text-zinc-300 mt-1">Solar Heat Blocked</span>
               </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <span className="text-3xl font-bold text-brand-400">15-Year</span>
-                <span>Warranty</span>
+              <div className="flex flex-col items-center justify-center p-2">
+                <span className="text-3xl sm:text-4xl font-extrabold text-brand-400 tracking-tight">99%</span>
+                <span className="text-xs sm:text-sm font-medium text-zinc-300 mt-1">UV Rays Blocked</span>
+              </div>
+              <div className="flex flex-col items-center justify-center p-2">
+                <span className="text-3xl sm:text-4xl font-extrabold text-brand-400 tracking-tight">15-Year</span>
+                <span className="text-xs sm:text-sm font-medium text-zinc-300 mt-1">Commercial Warranty</span>
               </div>
             </div>
           </Container>
