@@ -53,22 +53,17 @@ export default function AutomotivePage() {
         <Container className="relative z-10 py-20 lg:py-28">
           <div className="max-w-3xl mx-auto text-center">
             {/* Authorized XPEL Badge */}
-            <div className="inline-flex items-center gap-3 rounded-full bg-zinc-900/90 border border-zinc-700/80 px-4 py-2 shadow-2xl backdrop-blur-md mb-8">
-              <div className="flex items-center justify-center bg-white rounded-md px-2 py-0.5 h-6">
-                <Image
-                  src={XpelLogo}
-                  alt="Authorized XPEL Window Film Dealer"
-                  width={46}
-                  height={20}
-                  className="h-4 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-200 sm:text-sm">
-                <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Authorized XPEL Installer</span>
-                <span className="text-zinc-500">•</span>
-                <span className="text-brand-400">Houston, TX</span>
-              </div>
+            <div className="inline-flex items-center gap-2.5 sm:gap-3 rounded-full bg-zinc-900/80 border border-white/15 px-4 sm:px-5 py-2 shadow-xl backdrop-blur-md mb-8 hover:border-brand-500/40 transition-colors">
+              <span className="flex items-center justify-center font-black tracking-widest text-[11px] sm:text-xs bg-amber-400 text-zinc-950 px-2.5 py-0.5 rounded font-mono shadow-xs">
+                XPEL
+              </span>
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-zinc-100">
+                Authorized Dealer &amp; Certified Installers
+              </span>
+              <span className="text-zinc-500 hidden sm:inline">•</span>
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-brand-400 hidden sm:inline">
+                Houston, TX
+              </span>
             </div>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl mb-6 leading-tight">
