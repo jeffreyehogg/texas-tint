@@ -251,11 +251,11 @@ export default function CommercialPage() {
           fill
           sizes="100vw"
           priority
-          className="absolute inset-0 -z-10 object-cover object-center brightness-[0.72] contrast-[1.08] saturate-[1.12]"
+          className="absolute inset-0 -z-10 object-cover object-center brightness-[0.80] contrast-[1.05]"
         />
         {/* Cinematic gradient overlays for maximum text legibility */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-zinc-900/60" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-zinc-950 via-zinc-950/85 to-zinc-950/20 lg:to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
 
         <Container className="relative z-10 py-20 sm:py-28 lg:py-32">
           <div className="max-w-3xl">
